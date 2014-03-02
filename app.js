@@ -251,7 +251,7 @@
       case 39:
         if(!ingame) return;
       if(Player.position.x < width / 2 - 100){
-        Player.position.x += 18;
+        Player.position.x += 25;
         Player.rotation.y += 0.02;
       }else if(Player.position.x < width / 2 - 50) {
         Player.position.x += 0.3;
@@ -262,7 +262,7 @@
       case 37:
         if(!ingame) return;
       if(Player.position.x > width / -2 + 100){
-        Player.position.x -= 18;
+        Player.position.x -= 25;
         Player.rotation.y -= 0.02;
       }else if(Player.position.x > width / -2 + 50) {
         Player.position.x -= 0.3;

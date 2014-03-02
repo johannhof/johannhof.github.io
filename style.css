@@ -31,10 +31,11 @@ header span{
 
 a{
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
 
 a:hover{
+  transition: color 0.2s ease-out;
   color: lightblue;
 }
 
@@ -67,6 +68,7 @@ a:hover{
 
 #gameover button:hover{
   border: 1px solid lightblue;
+  transition: color 0.2s ease-out;
   color: lightblue;
 }
 
@@ -86,7 +88,7 @@ a:hover{
   margin-right: -60px;
   right: 0px;
   top: 75px;
-  transition: 1s all ease-in;
+  transition: 1s color ease-in;
 }
 
 #about{
@@ -95,7 +97,7 @@ a:hover{
   font-weight: 300;
   left: 40px;
   top: 75px;
-  transition: 1s all ease-in;
+  transition: 1s color ease-in;
 }
 
 section ul{
