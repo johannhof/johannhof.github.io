@@ -35,12 +35,14 @@ a:hover {
   transition: color 0.2s ease-out;
   color: lightblue;
 }
-#gameover {
+.game-message {
   position: absolute;
-  display: none;
   left: calc(50% - 125px);
-  top: calc(50% - 50px);
+  top: calc(50% - 100px);
   text-align: center;
+}
+#gameover {
+  display: none;
 }
 #gameover .gameover-title {
   font-size: 54px;
@@ -60,9 +62,28 @@ a:hover {
   border: 1px solid rgba(0, 0, 0, 0);
 }
 #gameover button:hover {
+  transition: all 0.2s ease-out;
   border: 1px solid lightblue;
-  transition: color 0.2s ease-out;
   color: lightblue;
+}
+#play-button {
+  font-size: 100px;
+  width: 85px;
+  text-align: center;
+  border-radius: 99px;
+  height: 100px;
+  padding-left: 15px;
+  left: calc(50% - 60px);
+  border: 2px solid rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+#play-button:hover {
+  transition: all 0.1s ease-out;
+  border: 2px solid lightblue;
+  color: lightblue;
+}
+#play-button:hover > #play-text {
+  transition: all 0.3s ease-out;
 }
 #time {
   position: absolute;
@@ -104,7 +125,7 @@ section li {
   display: block;
   float: left;
 }
-#projects span:hover ~ span > a:first-of-type{
+#projects span:hover ~ span > a:first-of-type {
   transition: color 0.2s ease-out;
   color: lightblue;
 }

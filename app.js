@@ -257,15 +257,17 @@
         }
         window.requestAnimationFrame(render);
         return false;
-      case 32:
-        if (ingame) return;
-        ingame = true;
-        document.getElementById("about").style.color = "rgba(0,0,0,0.1)"
-        document.getElementById("projects").style.color = "rgba(0,0,0,0.1)"
-        player1();
-        return false;
     }
   };
+
+  document.getElementById("play-button").onclick = function() {
+    if (ingame) return;
+    ingame = true;
+    this.style.display = "none";
+    document.getElementById("about").style.color = "rgba(0,0,0,0.1)"
+    document.getElementById("projects").style.color = "rgba(0,0,0,0.1)"
+    player1();
+  }
 
   function start() {
     speed = 12;
@@ -278,6 +280,7 @@
 
   document.getElementById("restart-button").onclick = function() {
     document.getElementById("gameover").style.display = "none";
+    document.getElementById("play-button").style.display = "block";
     start();
   };
 
