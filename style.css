@@ -133,3 +133,37 @@ section i {
   text-align: center;
   margin-right: 20px;
 }
+
+#buttons{
+  font-weight: 300;
+  font-size: 24px;
+  left: calc(50% - 175px);
+  top: calc(100% - 100px);
+  width: 500px;
+  opacity: 0;
+  transition: opacity 2s ease-out;
+}
+
+#buttons .left{
+  float:left;
+  text-align: left;
+  width: 33%;
+}
+
+#buttons .center{
+  float:left;
+  text-align: center;
+  width: 33%;
+}
+
+#buttons .right{
+  float:left;
+  text-align: right;
+  width: 33%;
+}
+
+.button{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px 25px;
+}

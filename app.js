@@ -210,6 +210,8 @@
     timeDisplay.innerText = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
   }
 
+  var buttons = document.getElementById("buttons");
+
   function player2() {
     if (Player.position.y <= 80) {
       window.requestAnimationFrame(player2);
@@ -217,6 +219,11 @@
       render();
     } else {
       intervals.push(setInterval(createObstacle, 1000));
+      buttons.style.opacity = "1";
+      setTimeout(function () {
+        buttons.style.opacity = "0";
+      }, 5000)
+
       window.requestAnimationFrame(move);
     }
   }
