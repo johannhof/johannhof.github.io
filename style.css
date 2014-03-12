@@ -133,8 +133,7 @@ section i {
   text-align: center;
   margin-right: 20px;
 }
-
-#buttons{
+#buttons {
   font-weight: 300;
   font-size: 24px;
   left: calc(50% - 175px);
@@ -143,27 +142,47 @@ section i {
   opacity: 0;
   transition: opacity 2s ease-out;
 }
-
-#buttons .left{
-  float:left;
+#buttons .left {
+  float: left;
   text-align: left;
   width: 33%;
 }
-
-#buttons .center{
-  float:left;
+#buttons .center {
+  float: left;
   text-align: center;
   width: 33%;
 }
-
-#buttons .right{
-  float:left;
+#buttons .right {
+  float: left;
   text-align: right;
   width: 33%;
 }
-
-.button{
+.button {
   border: 1px solid black;
   border-radius: 5px;
   padding: 2px 25px;
+}
+@media (max-width: 1023px) {
+  #play-button, #time {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  body{
+    overflow: scroll;
+  }
+
+  #about, #projects, header{
+    box-sizing: border-box;
+    position: static;
+    width: 100%;
+    padding: 20px;
+  }
+
+  header span{
+    width: 100%;
+    float: none;
+    margin: 20px;
+  }
 }

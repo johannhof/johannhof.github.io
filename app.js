@@ -1,7 +1,10 @@
 (function(window, THREE) {
   var width = window.innerWidth;
   var height = window.innerHeight;
-  var speed = 12;
+  if(width < 1024){
+    return;
+  }
+  var speed = 24;
   var ingame = false;
   var intervals = [];
 
@@ -16,6 +19,7 @@
   var obstacles, scene, Player;
 
   function initScene() {
+
     scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0xffffff, 1000, 2700);
 
@@ -190,8 +194,10 @@
       window.requestAnimationFrame(move);
     }
     obstacles.position.y -= speed;
-    speed += 0.01;
-    if (speed % 4 <= 0.01 && speed % 4 >= -0.01) {
+    if(speed < 60){
+      speed += 0.013;
+    }
+    if (speed % 5 <= 0.01 && speed % 5 >= -0.01) {
       intervals.push(setInterval(createObstacle, 1000));
     }
     if ((time - startTime) % 1000 <= 50 && (time - startTime) % 1000 >= -50) {
