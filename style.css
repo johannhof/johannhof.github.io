@@ -86,10 +86,23 @@ a:hover {
   transition: all 0.3s ease-out;
 }
 #time {
+  visibility: hidden;
   position: absolute;
   left: 50px;
   bottom: 50px;
   font-size: 54px;
+  font-weight: 100;
+  color: rgba(0,0,0,0.0);
+  transition: 1s color ease-in;
+}
+#personal-best {
+  visibility: hidden;
+  position: absolute;
+  left: 50px;
+  bottom: 20px;
+  font-size: 34px;
+  color: rgba(70,70,70,0.0);
+  transition: 1s color ease-in;
   font-weight: 100;
 }
 #projects {
@@ -141,7 +154,7 @@ section i {
   top: calc(100% - 100px);
   width: 500px;
   opacity: 0;
-  transition: opacity 2s ease-out;
+  transition: opacity 1s ease-out;
 }
 #buttons .left {
   float: left;
@@ -164,7 +177,7 @@ section i {
   padding: 2px 25px;
 }
 @media (max-width: 1023px) {
-  #play-button, #time {
+  #play-button, #time, #personal-best {
     display: none;
   }
 }

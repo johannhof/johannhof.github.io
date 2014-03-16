@@ -1,14 +1,25 @@
 (function(window, THREE) {
+  var document = window.document;
+  var localStorage = window.localStorage;
   var width = window.innerWidth;
   var height = window.innerHeight;
   if(width < 1024){
     return;
   }
-  var speed = 24;
+  var speed;
   var ingame = false;
   var intervals = [];
 
   var timeDisplay = document.getElementById("time");
+  var personalBest = document.getElementById("personal-best");
+  var buttons = document.getElementById("buttons");
+
+  // show game elements after they had their first animation
+  setTimeout(function() {
+    buttons.style.visibility = "visible";
+    timeDisplay.style.visibility = "visible";
+    personalBest.style.visibility = "visible";
+  }, 1000);
 
   function randomPointInSphere(radius) {
     return new THREE.Vector3(
@@ -19,6 +30,8 @@
   var obstacles, scene, Player;
 
   function initScene() {
+    width = window.innerWidth;
+    height = window.innerHeight;
 
     scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0xffffff, 1000, 2700);
@@ -44,7 +57,7 @@
     scene.add(obstacles);
 
     var plane = new THREE.Mesh(
-      new THREE.PlaneGeometry(window.innerWidth, window.innerHeight * 100),
+      new THREE.PlaneGeometry(width, height * 100),
       new THREE.MeshBasicMaterial({
         color: 0xffffff,
         side: THREE.DoubleSide
@@ -92,7 +105,7 @@
     obstacles.add(cube);
   }
 
-  var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000);
+  var camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 5000);
   camera.rotation.x = 0.9;
   camera.position.z = 1000;
   camera.position.y = -700;
@@ -103,11 +116,11 @@
     clearAlpha: 1
   });
   renderer.setClearColor(0xfcfcfc, 1);
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(width, height);
   renderer.shadowMapEnabled = true;
   renderer.shadowMapSoft = true;
   //renderer.shadowMapType = THREE.PCFSoftShadowMap;
-  window.document.body.appendChild(renderer.domElement);
+  document.body.appendChild(renderer.domElement);
 
   var render = function render() {
     renderer.render(scene, camera);
@@ -156,8 +169,8 @@
 
   function checkCollision() {
     return Player.children.some(function(child) {
-      var orig = Player.position.clone();
-      for (var vertexIndex = 0; vertexIndex < child.geometry.vertices.length; vertexIndex++) {
+      var orig = Player.position.clone(), vertexIndex;
+      for (vertexIndex = 0; vertexIndex < child.geometry.vertices.length; vertexIndex++) {
         var localVertex = child.geometry.vertices[vertexIndex].clone();
         var globalVertex = localVertex.applyMatrix4(Player.matrix);
         var directionVector = globalVertex.sub(Player.position);
@@ -173,35 +186,40 @@
 
   function lose() {
     document.getElementById("gameover").style.display = "block";
-    document.getElementById("about").style.color = "rgba(0,0,0,1)"
-    document.getElementById("projects").style.color = "rgba(0,0,0,1)"
+    document.getElementById("about").style.color = "rgba(0,0,0,1)";
+    document.getElementById("projects").style.color = "rgba(0,0,0,1)";
     ingame = false;
   }
 
   var startTime;
   var minutes = 0;
+  var seconds = 0;
+
+  function formatTime(minutes, seconds){
+    return minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+  }
+
+  function displayTime(minutes, seconds) {
+    timeDisplay.innerText = formatTime(minutes, seconds);
+  }
 
   function move(time) {
+
     if (!startTime) {
       startTime = time;
     }
+
     removeObstacles();
-    if (checkCollision()) {
-      startTime = undefined;
-      minutes = 0;
-      lose();
-    } else {
-      window.requestAnimationFrame(move);
-    }
+
     obstacles.position.y -= speed;
-    if(speed < 60){
+    if(speed < 31){
       speed += 0.013;
     }
     if (speed % 5 <= 0.01 && speed % 5 >= -0.01) {
       intervals.push(setInterval(createObstacle, 1000));
     }
     if ((time - startTime) % 1000 <= 50 && (time - startTime) % 1000 >= -50) {
-      var seconds = Math.round((time - startTime) / 1000);
+      seconds = Math.round((time - startTime) / 1000);
       if (seconds > 59) {
         seconds = 0;
         startTime = time;
@@ -209,17 +227,22 @@
       }
       displayTime(minutes, seconds);
     }
+
+    if (checkCollision()) {
+      startTime = undefined;
+      var score = minutes * 60 + seconds;
+      if(!(localStorage.racer_best && localStorage.racer_best > score)){
+        localStorage.racer_best = score;
+      }
+      minutes = 0;
+      lose();
+    } else {
+      window.requestAnimationFrame(move);
+    }
+
     render();
   }
 
-  function displayTime(minutes, seconds) {
-    timeDisplay.innerText = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
-  }
-
-  var buttons = document.getElementById("buttons");
-  setTimeout(function() {
-    buttons.style.visibility = "visible";
-  }, 2000);
 
   function player2() {
     if (Player.position.y <= 80) {
@@ -231,7 +254,7 @@
       buttons.style.opacity = "1";
       setTimeout(function () {
         buttons.style.opacity = "0";
-      }, 5000)
+      }, 5000);
 
       window.requestAnimationFrame(move);
     }
@@ -251,25 +274,25 @@
 
   window.onkeydown = function(event) {
     switch (event.keyCode) {
-      case 39:
-        if (!ingame) return;
-        if (Player.position.x < width / 2 - 100) {
-          Player.position.x += 25;
-          Player.rotation.y += 0.02;
-        } else if (Player.position.x < width / 2 - 50) {
-          Player.position.x += 0.3;
-          Player.rotation.y += 0.001;
-        }
-        window.requestAnimationFrame(render);
-        return false;
-      case 37:
+      case 37: // left button
         if (!ingame) return;
         if (Player.position.x > width / -2 + 100) {
-          Player.position.x -= 25;
-          Player.rotation.y -= 0.02;
+          Player.position.x -= 29;
+          Player.rotation.y -= 0.03;
         } else if (Player.position.x > width / -2 + 50) {
           Player.position.x -= 0.3;
           Player.rotation.y -= 0.001;
+        }
+        window.requestAnimationFrame(render);
+        return false;
+      case 39: // right button
+        if (!ingame) return;
+        if (Player.position.x < width / 2 - 100) {
+          Player.position.x += 29;
+          Player.rotation.y += 0.03;
+        } else if (Player.position.x < width / 2 - 50) {
+          Player.position.x += 0.3;
+          Player.rotation.y += 0.001;
         }
         window.requestAnimationFrame(render);
         return false;
@@ -280,13 +303,21 @@
     if (ingame) return;
     ingame = true;
     this.style.display = "none";
-    document.getElementById("about").style.color = "rgba(0,0,0,0.1)"
-    document.getElementById("projects").style.color = "rgba(0,0,0,0.1)"
+    document.getElementById("about").style.color = "rgba(0,0,0,0.1)";
+    document.getElementById("projects").style.color = "rgba(0,0,0,0.1)";
+    time.style.color = "rgba(0,0,0,1)";
+    personalBest.style.color = "rgba(70,70,70,1)";
     player1();
   }
 
   function start() {
-    speed = 12;
+    if(localStorage.racer_best){
+      var best = parseInt(localStorage.racer_best, 10);
+      var minutes = Math.floor(best / 60);
+      var seconds = best - minutes * 60;
+      personalBest.innerHTML = formatTime(minutes, seconds);
+    }
+    speed = 14;
     displayTime(0, 0);
     intervals.forEach(clearInterval);
     intervals = [];
