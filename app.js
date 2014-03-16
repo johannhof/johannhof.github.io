@@ -217,6 +217,9 @@
   }
 
   var buttons = document.getElementById("buttons");
+  setTimeout(function() {
+    buttons.style.visibility = "visible";
+  }, 2000);
 
   function player2() {
     if (Player.position.y <= 80) {
