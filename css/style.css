@@ -5,12 +5,17 @@ html {
   margin: 0;
   padding: 0;
   background-color: white;
+  /*color: white;*/
   font-family: Lato;
   overflow: hidden;
 }
+body,
+html * {
+  /*color: khite;*/
+}
 canvas {
   width: 100%;
-  height: 100% background-color: white;
+  height: 100%;
 }
 header {
   font-weight: 300;
@@ -33,7 +38,7 @@ a {
 }
 a:hover {
   transition: color 0.2s ease-out;
-  color: lightblue;
+  color: lightgreen;
 }
 .game-message {
   position: absolute;
@@ -56,6 +61,7 @@ a:hover {
   font-weight: 100;
   background: none;
   font-size: 20px;
+  color: inherit;
   border: none;
   cursor: pointer;
   margin: 10px;
@@ -63,8 +69,8 @@ a:hover {
 }
 #gameover button:hover {
   transition: all 0.2s ease-out;
-  border: 1px solid lightblue;
-  color: lightblue;
+  border: 1px solid lightgreen;
+  color: lightgreen;
 }
 #play-button {
   font-size: 100px;
@@ -79,8 +85,8 @@ a:hover {
 }
 #play-button:hover {
   transition: all 0.1s ease-out;
-  border: 2px solid lightblue;
-  color: lightblue;
+  border: 2px solid lightgreen;
+  color: lightgreen;
 }
 #play-button:hover > #play-text {
   transition: all 0.3s ease-out;
@@ -92,8 +98,8 @@ a:hover {
   bottom: 50px;
   font-size: 54px;
   font-weight: 100;
-  color: rgba(0,0,0,0.0);
-  transition: 1s color ease-in;
+  opacity: 0;
+  transition: 1s opacity ease-in;
 }
 #personal-best {
   visibility: hidden;
@@ -101,8 +107,9 @@ a:hover {
   left: 50px;
   bottom: 20px;
   font-size: 34px;
-  color: rgba(70,70,70,0.0);
-  transition: 1s color ease-in;
+  color: rgb(90, 90, 90);
+  opacity: 0;
+  transition: 1s opacity ease-in;
   font-weight: 100;
 }
 #projects {
@@ -140,7 +147,7 @@ section li {
 }
 #projects span:hover ~ span > a:first-of-type {
   transition: color 0.2s ease-out;
-  color: lightblue;
+  color: lightgreen;
 }
 section i {
   text-align: center;
@@ -177,24 +184,25 @@ section i {
   padding: 2px 25px;
 }
 @media (max-width: 1023px) {
-  #play-button, #time, #personal-best {
+  #play-button,
+  #time,
+  #personal-best {
     display: none;
   }
 }
-
 @media (max-width: 767px) {
-  body{
+  body {
     overflow: scroll;
   }
-
-  #about, #projects, header{
+  #about,
+  #projects,
+  header {
     box-sizing: border-box;
     position: static;
     width: 100%;
     padding: 20px;
   }
-
-  header span{
+  header span {
     width: 100%;
     float: none;
     margin: 20px;
