@@ -11,12 +11,31 @@
     new THREE.Vector3(0, 100, 0)
   ];
 
+  var shieldpoints = [
+    new THREE.Vector3(0, 0, 60),
+    new THREE.Vector3(50, 50, 0),
+    new THREE.Vector3(50, -50, 0),
+    new THREE.Vector3(-50, 50, 0),
+    new THREE.Vector3(-50, -50, 0),
+    new THREE.Vector3(0, 75, 0),
+    new THREE.Vector3(0, -75, 0),
+    new THREE.Vector3(-75, 0, 0),
+    new THREE.Vector3(75, 0, 0),
+    new THREE.Vector3(0, 0, -60)
+  ];
+
+  var shieldMaterial = new THREE.MeshPhongMaterial({
+    transparent: true,
+    opacity: 0.3,
+    color: 0x11EE11
+  });
+
   var darkMaterial = new THREE.MeshLambertMaterial({
     color: 0xbbbbbb
   });
 
   var wireframeMaterial = new THREE.MeshBasicMaterial({
-    color: 0x007700,
+    color: 0x444444,
     wireframe: true
   });
 
@@ -33,7 +52,23 @@
     this.children[1].castShadow = true;
     this.children[1].receiveShadow = true;
 
-    this.texture = new THREE.Texture();
+    this.shield = false;
+
+    this.shield = THREE.SceneUtils.createMultiMaterialObject(
+      new THREE.ConvexGeometry(shieldpoints), [shieldMaterial, wireframeMaterial]
+    );
+
+    this.shield.scale.x = 1.1;
+    this.shield.scale.y = 1.1;
+    this.shield.scale.z = 1.1;
+
+    this.shield.position.y = 30;
+    this.shield.position.z = 10;
+
+    this.add(this.shield);
+    this.shield.children[0].visible = false;
+    this.shield.children[1].visible = false;
+
 
     // load real model
     var self = this;
@@ -62,6 +97,48 @@
   };
 
   exports.Player.prototype = THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(playerpoints), multiMaterial);
+
+  exports.Player.prototype.getHit = function(obs) {
+    if (obs.type === "shield") {
+      if(!this.invincible){
+        this.addShield();
+        setTimeout(function() {
+          this.removeShield();
+        }.bind(this), 10000);
+        obs.parent.remove(obs);
+        return false;
+      }
+    }else{
+      if(this.invincible){
+        obs.parent.destroy(obs);
+      }
+    }
+    return !this.invincible;
+  };
+
+  exports.Player.prototype.flickerShield = function(state, cb) {
+    for (var i = 200; i < 2200; i += 200) {
+      state = !state;
+
+      setTimeout(function(state) {
+        this.shield.children[0].visible = state;
+        this.shield.children[1].visible = state;
+      }.bind(this, state), i);
+    }
+    setTimeout(cb, 2200);
+  };
+
+  exports.Player.prototype.addShield = function() {
+    this.invincible = true;
+    this.shield.children[0].visible = true;
+    this.shield.children[1].visible = true;
+  };
+
+  exports.Player.prototype.removeShield = function() {
+    this.flickerShield(false, function () {
+      this.invincible = false;
+    }.bind(this));
+  };
 
   exports.Player.prototype.left = function() {
     if (this.position.x > width / -2 + 100) {

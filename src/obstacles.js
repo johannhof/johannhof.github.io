@@ -6,6 +6,30 @@
   var MAX_SPEED = 40;
   var ACC = 0.02;
 
+  var diamondpoints = [
+    new THREE.Vector3(0, 0, 100),
+    new THREE.Vector3(50, 50, 0),
+    new THREE.Vector3(50, -50, 0),
+    new THREE.Vector3(-50, 50, 0),
+    new THREE.Vector3(-50, -50, 0),
+    new THREE.Vector3(0, 75, 0),
+    new THREE.Vector3(0, -75, 0),
+    new THREE.Vector3(-75, 0, 0),
+    new THREE.Vector3(75, 0, 0),
+    new THREE.Vector3(0, 0, -100)
+  ];
+
+  var diamondMaterial = new THREE.MeshPhongMaterial({
+    transparent: true,
+    opacity: 0.9,
+    color: 0x11EE11
+  });
+
+  var wireframeMaterial = new THREE.MeshBasicMaterial({
+    color: 0x444444,
+    wireframe: true
+  });
+
   exports.Obstacles = function(player) {
     this.player = player;
 
@@ -59,17 +83,37 @@
   };
 
   exports.Obstacles.prototype.createOne = function() {
-    var points = [],
-      i;
-    for (i = 0; i < 30; i++) {
-      points.push(randomPointInSphere(50));
-    }
+    var points = [], i, object;
+    var rand = Math.random();
 
-    var object = THREE.SceneUtils.createMultiMaterialObject(
-      new THREE.ConvexGeometry(points), this.materials
-    );
-    object.position.set(Math.random() * width - width / 2, -this.position.y + 2000, 60);
-    this.add(object);
+    if (rand <= 0.05) { // shield diamond
+      object = THREE.SceneUtils.createMultiMaterialObject(
+        new THREE.ConvexGeometry(diamondpoints),
+        [diamondMaterial, wireframeMaterial]
+      );
+
+      object.type = "shield";
+
+      object.position.set(Math.random() * width - width / 2, -this.position.y + 2500, 60);
+      object.scale.x = 0.5;
+      object.scale.y = 0.5;
+      object.scale.z = 0.5;
+
+      this.add(object);
+    } else { // normal obstacle
+      for (i = 0; i < 30; i++) {
+        points.push(randomPointInSphere(50));
+      }
+
+      object = THREE.SceneUtils.createMultiMaterialObject(
+        new THREE.ConvexGeometry(points), this.materials
+      );
+
+      object.type = "normal";
+
+      object.position.set(Math.random() * width - width / 2, -this.position.y + 2500, 60);
+      this.add(object);
+    }
   };
 
   exports.Obstacles.prototype.cleanUp = function(all) {
@@ -91,6 +135,12 @@
     this.speed = START_SPEED;
   };
 
+  exports.Obstacles.prototype.destroy = function(obstacle) {
+    obstacle.position.x += Math.random() * 30;
+    obstacle.position.y += Math.random() * 30;
+    //this.remove(obstacle);
+  };
+
   exports.Obstacles.prototype.accelerate = function() {
     if (this.speed < MAX_SPEED) {
       this.speed += ACC;
@@ -103,8 +153,9 @@
   };
 
   exports.Obstacles.prototype.checkCollision = function() {
-    return this.player.children.some(function(child) {
-      if (!child.geometry) return false;
+    for (var i = 0, l = this.player.children.length; i < l; i ++) {
+      var child = this.player.children[i];
+      if (!child.geometry) continue;
       var orig = this.player.position.clone(),
         vertexIndex;
       for (vertexIndex = 0; vertexIndex < child.geometry.vertices.length; vertexIndex++) {
@@ -115,10 +166,11 @@
         var ray = new THREE.Raycaster(orig, directionVector.clone().normalize());
         var collisionResults = ray.intersectObjects(this.children, true);
         if (collisionResults.length > 0 && collisionResults[0].distance < directionVector.length()) {
-          return true;
+          return collisionResults[0].object.parent;
         }
       }
-    }.bind(this));
+    }
+    return undefined;
   };
 
 }(window, window.THREE));

@@ -53,9 +53,9 @@
 
   var timer = new Timer(timeDisplay);
 
-  function render() {
+  window.render = function render() {
     renderer.render(scene, camera);
-  }
+  };
 
   function changeToBlack() {
     document.body.style.color = "white";
@@ -77,6 +77,10 @@
   }
 
   function lose() {
+    var score = timer.getScore();
+    if (!(localStorage.racer_best && localStorage.racer_best > score)) {
+      localStorage.racer_best = score;
+    }
     gameover.style.display = "block";
     about.style.opacity = "1";
     projects.style.opacity = "1";
@@ -89,31 +93,29 @@
 
     var t = timer.tick(time);
 
-    if(t === 10){
+    if (t === 10) {
       changeToBlack();
     }
 
-    if(t === 60){
+    if (t === 60) {
       changeToWhite();
     }
 
-    if(t === 75){
+    if (t === 75) {
       changeToBlack();
     }
 
-    if (ingame && Math.random() * 1000 < 30) {
+    if (ingame && Math.random() * 1000 < 60) {
       obstacles.createOne();
     }
 
-    if (obstacles.checkCollision()) {
-      var score = timer.getScore();
-      if (!(localStorage.racer_best && localStorage.racer_best > score)) {
-        localStorage.racer_best = score;
-      }
+    var hit = obstacles.checkCollision();
+    if (hit && player.getHit(hit)) {
       lose();
-    } else {
-      window.requestAnimationFrame(move);
+      return;
     }
+
+    window.requestAnimationFrame(move);
 
     render();
   }
