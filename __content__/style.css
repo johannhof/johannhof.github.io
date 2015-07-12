@@ -1,0 +1,166 @@
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body{
+}
+.menu{
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 30px 0;
+}
+.menu hr{
+  display: none;
+}
+.menu-item{
+  display: block;
+  padding: 10px 0 10px 20px;
+  text-decoration: none;
+  color: #000;
+  font-family: "Nothing You Could Do", cursive;
+  font-size: 20px;
+  transition: border-left 0.1s;
+}
+
+.menu-item.current, .menu-item:hover{
+  border-left: 3px solid #000;
+}
+
+main{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  padding: 50px 40px;
+  box-sizing: border-box;
+  min-height: 600px;
+}
+
+h1{
+  font-family: 'Nothing You Could Do', cursive;
+  font-weight: 100;
+  font-size: 48px;
+  text-transform: uppercase;
+  margin: 5px 0;
+  text-align: center;
+}
+
+h2{
+  font-family: 'Nothing You Could Do', cursive;
+  font-weight: 200;
+  font-size: 26px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+body[data-route=about] img{
+  height: 250px;
+  margin: 20px 50px;
+  float: right;
+}
+
+.blog-list li{
+  list-style: none;
+  text-align: center;
+  margin: 20px;
+}
+
+.blog-list li a{
+  font-family: 'Josefin Sans', sans-serif;
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.blog-list li a:hover{
+  text-decoration: underline;
+}
+
+article{
+  margin-top: 50px;
+}
+
+p{
+  text-align: justify;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+footer{
+  width: 100%;
+  font-family: 'Nothing You Could Do', cursive;
+  text-align: center;
+  color: grey;
+  font-weight: 200;
+  margin: 0 0 40px;
+}
+
+hr{
+  max-width: 900px;
+  height: 1px;
+  border: 0;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
+}
+
+@media all and (max-width:1024px) {
+  main{
+    padding: 25px 40px;
+  }
+  .menu{
+    position: static;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .menu-item{
+    display: inline-block;
+    padding: 10px 0 10px 20px;
+    text-decoration: none;
+    color: #000;
+    font-family: "Nothing You Could Do", cursive;
+    font-size: 20px;
+    transition: border-left 0.1s;
+  }
+  .menu hr{
+    display: block;
+  }
+  .menu-item.current, .menu-item:hover{
+    border-left: none;
+  }
+}
+
+@media all and (max-width:768px) {
+  h1{
+    font-size: 40px;
+  }
+  main{
+    padding: 20px 40px;
+  }
+}
+
+@media all and (max-width:390px) {
+  header{
+    margin-top: 10px;
+    height: 50px;
+  }
+  #stage{
+    display: none;
+  }
+  main{
+    padding: 15px 20px;
+  }
+  h1{
+    font-size: 30px;
+  }
+  h2{
+    font-size: 20px;
+  }
+}
+
