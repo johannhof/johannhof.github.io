@@ -51,14 +51,25 @@ h2{
   font-family: 'Nothing You Could Do', cursive;
   font-weight: 200;
   font-size: 26px;
-  margin: 5px 0;
+  margin: 30px 0;
   text-align: center;
 }
 
-body[data-route=about] img{
-  height: 250px;
+body[data-route=about] p{
+  padding: 5px 0;
+  max-width: 600px;
+}
+
+.me-image{
+  height: 220px;
   margin: 20px 50px;
   float: right;
+}
+
+.about-icon {
+  float: left;
+  height: 75px;
+  margin-right: 10px;
 }
 
 .blog-list li{
@@ -164,3 +175,16 @@ hr{
   }
 }
 
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */

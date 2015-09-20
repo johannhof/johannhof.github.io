@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Me</title>
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,100italic,100,300,300italic,400italic,600italic,600,700,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/style.css" type="text/css" media="all" />
-  </head>
-<body data-route=about>
-<nav class="menu">
-  <a class="menu-item current" href="/about/">Johann</a>
-  <a class="menu-item " href="/">Blog</a>
-  <a class="menu-item " href="/talks/">Talks</a>
-  <a class="menu-item" href="http://github.com/johannhof">GitHub</a>
-  <a class="menu-item" href="http://twitter.com/johannh">Twitter</a>
-  <hr>
-</nav>
-<main>
-  
+@extends: default.tpl
+
+title: Me
+route: about
+---
 
 <img class="me-image" src="/img/me.jpg" />
 
@@ -62,12 +45,3 @@ I'm a Mozilla AMO reviewer and contribute to Firefox and other Mozilla projects.
 At night I use my spider-like superpowers to fight monsters and evil maniacs.
 </p>
 
-
-</main>
-</body>
-  <footer>
-    <hr>
-    Built with Cobalt.
-  </footer>
-  </body>
-</html>

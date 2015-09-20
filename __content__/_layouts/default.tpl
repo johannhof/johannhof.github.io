@@ -11,8 +11,9 @@
   </head>
 <body data-route={{route}}>
 <nav class="menu">
-  <a class="menu-item {%if route == "about"%}current{%endif%}" href="/about/">{%if route == "about"%}Me{%else%}Johann{%endif%}</a>
+  <a class="menu-item {%if route == "about"%}current{%endif%}" href="/about/">Johann</a>
   <a class="menu-item {%if route == "blog"%}current{%endif%}" href="/">Blog</a>
+  <a class="menu-item {%if route == "talks"%}current{%endif%}" href="/talks/">Talks</a>
   <a class="menu-item" href="http://github.com/johannhof">GitHub</a>
   <a class="menu-item" href="http://twitter.com/johannh">Twitter</a>
   <hr>
