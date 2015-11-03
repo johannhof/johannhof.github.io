@@ -1,35 +1,42 @@
-
 html,
 body {
   margin: 0;
   padding: 0;
 }
-body{
-}
-.menu{
+
+body {}
+
+nav {
+  font-family: "Muli", sans-serif;
   position: fixed;
   left: 0;
   top: 0;
   padding: 30px 0;
 }
-.menu hr{
+
+nav hr {
   display: none;
 }
-.menu-item{
+
+nav .menu-item {
   display: block;
   padding: 10px 0 10px 20px;
   text-decoration: none;
-  color: #000;
-  font-family: "Nothing You Could Do", cursive;
   font-size: 20px;
+  font-weight: 100;
   transition: border-left 0.1s;
 }
 
-.menu-item.current, .menu-item:hover{
+nav a.menu-item {
+  color: #000;
+}
+
+.menu-item.current,
+.menu-item:hover {
   border-left: 3px solid #000;
 }
 
-main{
+main {
   margin: 0 auto;
   width: 100%;
   max-width: 900px;
@@ -38,29 +45,12 @@ main{
   min-height: 600px;
 }
 
-h1{
-  font-family: 'Nothing You Could Do', cursive;
-  font-weight: 100;
-  font-size: 48px;
-  text-transform: uppercase;
-  margin: 5px 0;
-  text-align: center;
-}
-
-h2{
-  font-family: 'Nothing You Could Do', cursive;
-  font-weight: 200;
-  font-size: 26px;
-  margin: 30px 0;
-  text-align: center;
-}
-
-body[data-route=about] p{
+body[data-route=about] p {
   padding: 5px 0;
   max-width: 600px;
 }
 
-.me-image{
+.me-image {
   height: 220px;
   margin: 20px 50px;
   float: right;
@@ -69,47 +59,45 @@ body[data-route=about] p{
 .about-icon {
   float: left;
   height: 75px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
-.blog-list li{
+.blog-list li {
   list-style: none;
   text-align: center;
   margin: 20px;
 }
 
-.blog-list li a{
-  font-family: 'Josefin Sans', sans-serif;
+.blog-list li a {
+  font-weight: 200;
   color: black;
   font-size: 30px;
   text-decoration: none;
 }
 
-.blog-list li a:hover{
+.blog-list li a:hover {
   text-decoration: underline;
 }
 
-article{
+article {
   margin-top: 50px;
 }
 
-p{
-  text-align: justify;
-  font-weight: 400;
-  font-size: 18px;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-footer{
+footer {
+  font-family: "Muli", sans-serif;
   width: 100%;
-  font-family: 'Nothing You Could Do', cursive;
   text-align: center;
   color: grey;
   font-weight: 200;
   margin: 0 0 40px;
 }
 
-hr{
+footer a, footer a:visited {
+  color: grey;
+}
+
+hr {
+  padding: 0;
   max-width: 900px;
   height: 1px;
   border: 0;
@@ -120,71 +108,82 @@ hr{
 }
 
 @media all and (max-width:1024px) {
-  main{
+  main {
     padding: 25px 40px;
   }
-  .menu{
+  nav {
     position: static;
     margin: 0 auto;
     width: 100%;
     text-align: center;
     padding: 20px 0;
   }
-  .menu-item{
+  nav .menu-item {
     display: inline-block;
     padding: 10px 0 10px 20px;
     text-decoration: none;
-    color: #000;
-    font-family: "Nothing You Could Do", cursive;
     font-size: 20px;
     transition: border-left 0.1s;
   }
-  .menu hr{
+  .menu hr {
     display: block;
   }
-  .menu-item.current, .menu-item:hover{
+  .menu-item.current,
+  .menu-item:hover {
     border-left: none;
   }
 }
 
 @media all and (max-width:768px) {
-  h1{
+  h1 {
     font-size: 40px;
   }
-  main{
+  main {
     padding: 20px 40px;
   }
 }
 
 @media all and (max-width:390px) {
-  header{
+  header {
     margin-top: 10px;
     height: 50px;
   }
-  #stage{
+  #stage {
     display: none;
   }
-  main{
+  main {
     padding: 15px 20px;
   }
-  h1{
+  h1 {
     font-size: 30px;
   }
-  h2{
+  h2 {
     font-size: 20px;
   }
 }
 
 .clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
-.clearfix { display: inline-block; }
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+
 /* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
 /* close commented backslash hack */
