@@ -8,7 +8,7 @@ route:   blog
 
 # {{ title }}
 
-[rustfmt](https://github.com/nrc/rustfmt) just added support for receiving code on stdin. This means that you can now pipe things into `rustfmt` on stdin and receive a plain formatted version of your input on sdtout, the UNIX way.
+[rustfmt](https://github.com/nrc/rustfmt) just added support for receiving code on stdin. This means that you can now pipe things into `rustfmt` on stdin and receive a plain formatted version of your input on stdout, the UNIX way.
 
       echo "pub fn main(){println!(\"hello\");}" | rustfmt
 
