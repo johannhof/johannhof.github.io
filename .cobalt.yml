@@ -1,0 +1,4 @@
+source: ./__content__
+dest: ./
+posts: blog
+
