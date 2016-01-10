@@ -18,7 +18,9 @@
   <hr>
 </nav>
 <main>
-  <h1>Using rustfmt in Vim</h1><p><a href='https://github.com/nrc/rustfmt'>rustfmt</a> just added support for receiving code on stdin. This means that you can now pipe things into <code>rustfmt</code> on stdin and receive a plain formatted version of your input on stdout, the UNIX way.</p>
+  <h1 id='using_rustfmt_in_vim'>Using rustfmt in Vim</h1>
+
+<p><a href='https://github.com/nrc/rustfmt'>rustfmt</a> just added support for receiving code on stdin. This means that you can now pipe things into <code>rustfmt</code> on stdin and receive a plain formatted version of your input on stdout, the UNIX way.</p>
 
 <pre><code>  echo &quot;pub fn main(){println!(\&quot;hello\&quot;);}&quot; | rustfmt</code></pre>
 
@@ -28,7 +30,9 @@
 
 <p>Here's how to do it in Vim, my editor of heart.</p>
 
-<h2>Integrating with Vim-Autoformat</h2><p><a href='https://github.com/Chiel92/vim-autoformat'>Vim-Autoformat</a> is a neat plugin that allows you to define custom formatters to run on your code while you're editing it in Vim.</p>
+<h2 id='integrating_with_vim-autoformat'>Integrating with Vim-Autoformat</h2>
+
+<p><a href='https://github.com/Chiel92/vim-autoformat'>Vim-Autoformat</a> is a neat plugin that allows you to define custom formatters to run on your code while you're editing it in Vim.</p>
 
 <p>Only a few steps are required to make it work with rustfmt.</p>
 
