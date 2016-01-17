@@ -1,7 +1,7 @@
-@extends: default.tpl
+extends: default.tpl
 
 title:   Reading List - November 2015
-date:    30/11/2015
+date:    30 Nov 2015 23:00:00 +0100
 path:    reading-list-11-2015.html
 route: blog
 ---
@@ -10,7 +10,7 @@ route: blog
 
 Not much time to read in November, lot's of stuff still saved in my Pocket list, still some things I found entertaining.
 
-_Graham King_ gives us a great compilation of problems that apparently arise from the coding culture at Facebook. I think that the folks at Facebook do an amazing job, but let's enjoy a moment of Schadefreude anyway [http://www.darkcoding.net/software/facebooks-code-quality-problem/](http://www.darkcoding.net/software/facebooks-code-quality-problem/)
+_Graham King_ gives us a great compilation of problems that apparently arise from the coding culture at Facebook. I think that the folks at Facebook do an amazing job, but let's enjoy a moment of Schadenfreude anyway [http://www.darkcoding.net/software/facebooks-code-quality-problem/](http://www.darkcoding.net/software/facebooks-code-quality-problem/)
 
 _Mike Ash_ goes great lengths to explain what a String is and why Swift is doing them right [https://www.mikeash.com/pyblog/friday-qa-2015-11-06-why-is-swifts-string-api-so-hard.html](https://www.mikeash.com/pyblog/friday-qa-2015-11-06-why-is-swifts-string-api-so-hard.html)
 

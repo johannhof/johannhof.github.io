@@ -1,4 +1,4 @@
-@extends: default.tpl
+extends: default.tpl
 
 title:   Talks
 date:    15/09/2015

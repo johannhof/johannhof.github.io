@@ -1,4 +1,4 @@
-@extends: default.tpl
+extends: default.tpl
 
 title: Me
 route: about

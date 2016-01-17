@@ -1,7 +1,7 @@
-@extends: default.tpl
+extends: default.tpl
 
 title:   Using rustfmt in Vim
-date:    11/03/2015
+date:    03 Nov 2015 23:00:00 +0100
 path:    rustfmt-vim.html
 route:   blog
 ---
