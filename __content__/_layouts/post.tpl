@@ -14,9 +14,10 @@
   <a class="menu-item {%if route == "about"%}current{%endif%}" href="/about/">Johann</a>
   <a class="menu-item {%if route == "blog"%}current{%endif%}" href="/">Blog</a>
   <a class="menu-item {%if route == "talks"%}current{%endif%}" href="/talks/">Talks</a>
-  <a class="menu-item" href="http://github.com/johannhof">GitHub</a>
-  <a class="menu-item" href="https://getpocket.com/@jprimero">Reading List</a>
-  <a class="menu-item" href="http://twitter.com/johannh">Twitter</a>
+  <a class="menu-item icon" href="http://github.com/johannhof"><i class="fa fa-github-square"></i></a>
+  <a class="menu-item icon" href="http://twitter.com/johannh"><i class="fa fa-twitter-square"></i></a>
+  <a class="menu-item icon" href="https://getpocket.com/@jprimero"><i class="fa fa-get-pocket"></i></a>
+  <a class="menu-item icon" href="/rss.xml"><i class="fa fa-rss-square"></i></a>
   <hr>
 </nav>
 <main>
