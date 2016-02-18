@@ -27,6 +27,11 @@ nav .menu-item {
   transition: border-left 0.1s;
 }
 
+nav .menu-item.icon {
+  font-size: 22px;
+  padding-left: 30px;
+}
+
 nav a.menu-item {
   color: #000;
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>jpm as a Node module</title>
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
     <link rel="stylesheet" href="//writ.cmcenroe.me/1.0.2/writ.min.css">
     <link rel="stylesheet" href="/style.css" type="text/css" media="all" />
   </head>
@@ -19,9 +20,10 @@
   <hr>
 </nav>
 <main>
-  <h1 id='jpm_as_a_node_module'>jpm as a Node module</h1>
-
-<p>Despite my personal involvement in <a href='https://github.com/mozilla-jetpack/jpm'>jpm</a> we've used <a href='https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/cfx'>cfx</a> at <a href='https://zenmate.com'>ZenMate</a> for building our Addon-SDK based Firefox extensions until it finally <a href='https://blog.mozilla.org/addons/2015/10/14/breaking-changes-let-const-firefox-nightly-44/'>became obsolete</a>. With cfx-based Addons now being more or less automatically rejected from <a href='https://addons.mozilla.org'>addons.mozilla.org</a>, we made the transition to jpm.</p>
+  <article>
+    <h1>jpm as a Node module</h1>
+    <time pubdate="pubdate">11 Feb 2016 15:26:00 +0100</time>
+    <p>Despite my personal involvement in <a href='https://github.com/mozilla-jetpack/jpm'>jpm</a> we've used <a href='https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/cfx'>cfx</a> at <a href='https://zenmate.com'>ZenMate</a> for building our Addon-SDK based Firefox extensions until it finally <a href='https://blog.mozilla.org/addons/2015/10/14/breaking-changes-let-const-firefox-nightly-44/'>became obsolete</a>. With cfx-based Addons now being more or less automatically rejected from <a href='https://addons.mozilla.org'>addons.mozilla.org</a>, we made the transition to jpm.</p>
 
 <p>This was long overdue, since jpm is better supported and installable from npm. As a bonus, we can finally <code>require('jpm')</code> in our build tools instead of using <code>child_process.spawn</code> to run a cfx command.</p>
 
@@ -77,6 +79,7 @@ xpi(manifest, options).then(function(xpiPath) {
   console.error(error);
 });</code></pre>
 
+  </article>
 </main>
 </body>
   <footer>

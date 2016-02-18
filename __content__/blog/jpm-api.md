@@ -1,12 +1,9 @@
-extends: default.tpl
+extends: post.tpl
 
 title:   jpm as a Node module
 date:    11 Feb 2016 15:26:00 +0100
-path:    jpm-api.html
 route:   blog
 ---
-
-# {{ title }}
 
 Despite my personal involvement in [jpm](https://github.com/mozilla-jetpack/jpm) we've used [cfx](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/cfx) at [ZenMate](https://zenmate.com) for building
 our Addon-SDK based Firefox extensions until it finally [became obsolete](https://blog.mozilla.org/addons/2015/10/14/breaking-changes-let-const-firefox-nightly-44/).

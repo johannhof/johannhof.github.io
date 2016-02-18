@@ -1,12 +1,9 @@
-extends: default.tpl
+extends: post.tpl
 
 title:   Reading List - August 2015
 date:    30 Aug 2015 23:00:00 +0100
-path:    reading-list-08-2015.html
 route: blog
 ---
-
-# {{ title }}
 
 ## Rust
 

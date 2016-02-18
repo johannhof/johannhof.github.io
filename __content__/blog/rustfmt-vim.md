@@ -1,12 +1,9 @@
-extends: default.tpl
+extends: post.tpl
 
 title:   Using rustfmt in Vim
 date:    03 Nov 2015 23:00:00 +0100
-path:    rustfmt-vim.html
 route:   blog
 ---
-
-# {{ title }}
 
 [rustfmt](https://github.com/nrc/rustfmt) just added support for receiving code on stdin. This means that you can now pipe things into `rustfmt` on stdin and receive a plain formatted version of your input on stdout, the UNIX way.
 

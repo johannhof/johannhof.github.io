@@ -1,12 +1,9 @@
-extends: default.tpl
+extends: post.tpl
 
 title:   Reading List - December 2015
 date:    30 Dec 2015 23:00:00 +0100
-path:    reading-list-12-2015.html
 route: blog
 ---
-
-# {{ title }}
 
 Postlight is messing with with the Pinterest Chrome Plugin [https://posts.postlight.com/stick-a-pin-in-it-acf3a9051337](https://posts.postlight.com/stick-a-pin-in-it-acf3a9051337)
 

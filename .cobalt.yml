@@ -1,4 +1,8 @@
 source: ./__content__
 dest: ./
 posts: blog
+rss: rss.xml
+name: Johann's Blog
+description: Things about JS, Rust, Mozilla and more!
+link: http://johannh.me
 
