@@ -1,4 +1,4 @@
-extends: post.tpl
+extends: post.liquid
 
 title:   jpm as a Node module
 date:    11 Feb 2016 15:26:00 +0100

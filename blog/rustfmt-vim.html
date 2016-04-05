@@ -24,45 +24,39 @@
   <article>
     <h1>Using rustfmt in Vim</h1>
     <time pubdate="pubdate">03 Nov 2015 23:00:00 +0100</time>
-    <p><a href='https://github.com/nrc/rustfmt'>rustfmt</a> just added support for receiving code on stdin. This means that you can now pipe things into <code>rustfmt</code> on stdin and receive a plain formatted version of your input on stdout, the UNIX way.</p>
+    <p><a href="https://github.com/nrc/rustfmt">rustfmt</a> just added support for receiving code on stdin. This means that you can now pipe things into <code>rustfmt</code> on stdin and receive a plain formatted version of your input on stdout, the UNIX way.</p>
+<pre><code>  echo &quot;pub fn main(){println!(\&quot;hello\&quot;);}&quot; | rustfmt
 
-<pre><code>  echo &quot;pub fn main(){println!(\&quot;hello\&quot;);}&quot; | rustfmt</code></pre>
-
-<pre><code>  cat src/lib.rs | rustfmt</code></pre>
-
+  cat src/lib.rs | rustfmt
+</code></pre>
 <p>This enables us to write editor plugins that call <code>rustfmt</code> and replace the file content with the result from stdout.</p>
-
 <p>Here's how to do it in Vim, my editor of heart.</p>
-
-<h2 id='integrating_with_vim-autoformat'>Integrating with Vim-Autoformat</h2>
-
-<p><a href='https://github.com/Chiel92/vim-autoformat'>Vim-Autoformat</a> is a neat plugin that allows you to define custom formatters to run on your code while you're editing it in Vim.</p>
-
+<h2>Integrating with Vim-Autoformat</h2>
+<p><a href="https://github.com/Chiel92/vim-autoformat">Vim-Autoformat</a> is a neat plugin that allows you to define custom formatters to run on your code while you're editing it in Vim.</p>
 <p>Only a few steps are required to make it work with rustfmt.</p>
-
-<p>1. <strong>Install rustfmt</strong>, instructions can be found here: <a href='https://github.com/nrc/rustfmt#installation'>https://github.com/nrc/rustfmt#installation</a></p>
-
-<pre><code>  multirust run nightly cargo install --git https://github.com/nrc/rustfmt</code></pre>
-
-<p>2. <strong>Install vim-autoformat</strong> with a plugin manager of your choice, I use <a href='https://github.com/junegunn/vim-plug'>vim-plug</a></p>
-
-<pre><code>  Plug 'Chiel92/vim-autoformat'</code></pre>
-
-<p>3. <strong>Add rustfmt to the list of formatters.</strong> vim-autoformat comes with a set of predefined formatters for popular languages, but until my <a href='https://github.com/Chiel92/vim-autoformat/pull/87'>pull request adding Rust</a> is merged we'll have to add it ourselves.</p>
-
+<ol>
+<li>
+<p><strong>Install rustfmt</strong>, instructions can be found here: <a href="https://github.com/nrc/rustfmt#installation">https://github.com/nrc/rustfmt#installation</a></p>
+<p>multirust run nightly cargo install --git https://github.com/nrc/rustfmt</p>
+</li>
+<li>
+<p><strong>Install vim-autoformat</strong> with a plugin manager of your choice, I use <a href="https://github.com/junegunn/vim-plug">vim-plug</a></p>
+<p>Plug 'Chiel92/vim-autoformat'</p>
+</li>
+<li>
+<p><strong>Add rustfmt to the list of formatters.</strong> vim-autoformat comes with a set of predefined formatters for popular languages, but until my <a href="https://github.com/Chiel92/vim-autoformat/pull/87">pull request adding Rust</a> is merged we'll have to add it ourselves.</p>
+</li>
+</ol>
 <p>Fortunately, it's quite easy. Just add the following two lines to your .vimrc:</p>
-
 <pre><code>  let g:formatdef_rustfmt = '&quot;rustfmt&quot;'
-  let g:formatters_rust = ['rustfmt']</code></pre>
-
+  let g:formatters_rust = ['rustfmt']
+</code></pre>
 <p>Now you can call <code>:Autoformat</code> to automatically format your Rust code. Optionally you can map it to something more convenient, I use <code>&lt;Leader&gt;f</code></p>
-
-<pre><code>  nmap &lt;Leader&gt;f :Autoformat&lt;CR&gt;</code></pre>
-
+<pre><code>  nmap &lt;Leader&gt;f :Autoformat&lt;CR&gt;
+</code></pre>
 <p>Or you can instruct Vim to automatically format on save, which is only convenient if the formatter is fast enough. (<code>rustfmt</code> is blazing fast)</p>
-
-<pre><code>  au BufWrite * :Autoformat</code></pre>
-
+<pre><code>  au BufWrite * :Autoformat
+</code></pre>
 <p>Now go ahead and integrate <code>rustfmt</code> into your preferred editor! It's a great way to keep your code consistent and a tight editor integration will ensure your workflow is never disrupted and that you will never forget to rustfmt anything again.</p>
 
   </article>

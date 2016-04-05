@@ -1,4 +1,4 @@
-extends: post.tpl
+extends: post.liquid
 
 title:   Using rustfmt in Vim
 date:    03 Nov 2015 23:00:00 +0100

@@ -1,4 +1,4 @@
-extends: post.tpl
+extends: post.liquid
 
 title:   Reading List - November 2015
 date:    30 Nov 2015 23:00:00 +0100
