@@ -5,7 +5,7 @@ before_script:
 - cargo install cobalt-bin
 - export PATH="$PATH:/home/travis/.cargo/bin"
 script:
-- cobalt build
+- mkdir build && cobalt build
 after_success: |
   [ $TRAVIS_BRANCH = source ] &&
   [ $TRAVIS_PULL_REQUEST = false ] &&
