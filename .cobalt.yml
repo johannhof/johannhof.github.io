@@ -1,6 +1,7 @@
 source: ./
 dest: ./build
 posts: blog
+drafts: _drafts
 ignore: ["README.md"]
 rss: rss.xml
 name: Johann's Blog
