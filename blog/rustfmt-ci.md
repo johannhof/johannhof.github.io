@@ -22,7 +22,7 @@ script:
   cargo test
 ```
 
-`cache: cargo` is absolutely required, compiling a fresh rustfmt on every run significantly slows down your CI.
+`cache: cargo` is highly suggested, compiling a fresh rustfmt on every run significantly slows down your CI.
 Since cargo returns an error if a package is installed already, I have to use `(cargo install rustfmt || true)`.
 (If anyone wants to add support for a `--update` flag in cargo, [I think they'd be happy to merge it](https://github.com/rust-lang/cargo/pull/2405#issuecomment-195475633)).
 
