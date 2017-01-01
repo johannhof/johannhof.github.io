@@ -11,3 +11,7 @@ To build run
 ```
 cobalt build
 ```
+
+## License
+
+Code is licensed under MIT, text and other content under CC BY-SA 4.0. See http://johannh.me/license/
