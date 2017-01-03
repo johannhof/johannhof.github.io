@@ -11,7 +11,7 @@ route:   blog
 
 This is an example Travis configuration you can use:
 
-```
+```yaml
 language: rust
 cache: cargo
 before_script: (cargo install rustfmt || true)

@@ -44,22 +44,23 @@ Note that keys in options are camelCased, while command-line flags use dashes. S
 
 ## Full Example
 
-    var fs = require('fs');
-    var xpi = require('jpm/lib/xpi');
-    
-    // get manifest contents 
-    var manifest = JSON.parse(fs.readFileSync('/path/to/your/addon/package.json', 'utf8'));
-    
-    // like command line options
-    var options = {
-      addonDir: '/path/to/your/addon',
-      xpiPath: '/path/to/your/output/dir'
-    };
-    
-    // create XPI
-    xpi(manifest, options).then(function(xpiPath) {
-      console.log("XPI saved at", xpiPath);
-    }).catch(function(error) {
-      console.error(error);
-    });
+```js
+var fs = require('fs');
+var xpi = require('jpm/lib/xpi');
 
+// get manifest contents 
+var manifest = JSON.parse(fs.readFileSync('/path/to/your/addon/package.json', 'utf8'));
+
+// like command line options
+var options = {
+  addonDir: '/path/to/your/addon',
+  xpiPath: '/path/to/your/output/dir'
+};
+
+// create XPI
+xpi(manifest, options).then(function(xpiPath) {
+  console.log("XPI saved at", xpiPath);
+}).catch(function(error) {
+  console.error(error);
+});
+```
