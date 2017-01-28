@@ -1,11 +1,8 @@
 sudo: false
-language: rust
-cache: cargo
 before_script:
-- cargo install cobalt-bin || true
-- export PATH="$PATH:/home/travis/.cargo/bin"
+  - curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --git cobalt-org/cobalt.rs --crate cobalt --force --to /usr/bin
 script:
-- mkdir build && cobalt build
+  - cobalt build
 after_success: |
   [ $TRAVIS_BRANCH = source ] &&
   [ $TRAVIS_PULL_REQUEST = false ] &&
