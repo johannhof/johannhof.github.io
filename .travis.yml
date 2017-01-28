@@ -1,6 +1,7 @@
 sudo: false
 before_script:
-  - curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --git cobalt-org/cobalt.rs --crate cobalt --force --to /usr/bin --target x86_64-unknown-linux-gnu
+  - curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --git cobalt-org/cobalt.rs --crate cobalt --force --target x86_64-unknown-linux-gnu
+  - export PATH="$PATH:~/.cargo/bin"
 script:
   - cobalt build
 after_success: |
