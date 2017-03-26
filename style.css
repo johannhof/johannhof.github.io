@@ -1,17 +1,27 @@
 html,
 body {
+  /*font-size: 15px;*/
   margin: 0;
   padding: 0;
 }
 
 body {}
 
+pre {
+  padding: 1ch;
+  border: none;
+}
+
+time {
+  color: #ccc;
+}
+
 nav {
   font-family: "Muli", sans-serif;
   position: fixed;
   left: 0;
   top: 0;
-  padding: 30px 0;
+  padding: 28px 0;
 }
 
 nav hr {
