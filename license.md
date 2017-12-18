@@ -1,6 +1,7 @@
 extends: default.liquid
 
 title: johannh.me - License
+route: about
 path:  license/
 ---
 
