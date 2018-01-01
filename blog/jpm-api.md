@@ -1,10 +1,9 @@
-extends: post.liquid
-
-title:   jpm as a Node module
-date:    11 Feb 2016 15:26:00 +0100
-route:   blog
+title: jpm as a Node module
+published_date: "2016-02-11 15:26:00 +0100"
+layout: post.liquid
+data:
+  route: blog
 ---
-
 Despite my personal involvement in [jpm](https://github.com/mozilla-jetpack/jpm) we've used [cfx](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/cfx) at [ZenMate](https://zenmate.com) for building
 our Addon-SDK based Firefox extensions until it finally [became obsolete](https://blog.mozilla.org/addons/2015/10/14/breaking-changes-let-const-firefox-nightly-44/).
 With cfx-based Addons now being more or less automatically rejected from [addons.mozilla.org](https://addons.mozilla.org), we made the transition to jpm.

@@ -1,10 +1,9 @@
-extends: post.liquid
-
-title:   React Native Integration Testing with Async AVA and Appium (+ CI)
-date:    06 Jun 2016 10:00:00 +0100
-route:   blog
+title: React Native Integration Testing with Async AVA and Appium (+ CI)
+published_date: "2016-06-06 10:00:00 +0100"
+layout: post.liquid
+data:
+  route: blog
 ---
-
 In this post I'd like to introduce my approach to React Native Integration testing.
 
 > I will focus on iOS integration testing for now.

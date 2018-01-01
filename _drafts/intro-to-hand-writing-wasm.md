@@ -1,10 +1,9 @@
-extends: post.liquid
-
-title:   An intro to hand-written WebAssembly
-date:    20 Mar 2017 10:00:00 +0100
-route:   blog
+title: "An intro to hand-written WebAssembly"
+published_date: "2017-03-20 10:00:00 +0100"
+layout: post.liquid
+data:
+  route: blog
 ---
-
 Ever since reading [Rasmus Andersson's _Introduction to WebAssembly_](https://rsms.me/wasm-intro), which was a wonderful
 starting point to explore the wasm/wast/wat format and hand-writing my own WebAssembly, I wanted to take the time and
 write down what I learned based on writing a couple of fun exercise programs. I hope to do this in a format that can be understood
