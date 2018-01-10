@@ -1,13 +1,12 @@
-extends: default.liquid
-
-title: Johann's Notes
-route: blog
+title: "Johann's Notes"
+layout: default.liquid
+data:
+  route: blog
 ---
-
 <ul class="blog-list">
-  {% for post in posts %}
+  {% for post in collections.posts.pages %}
     <li>
-      <a href="{{ post.path }}">{{ post.title }}</a>
+      <a href="{{ post.permalink }}">{{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>

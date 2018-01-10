@@ -1,11 +1,10 @@
-extends: post.liquid
-
-title:   A better WebExtension debug console
-subtitle: Small steps towards an awesome development experience
-date:    26 April 2016 15:26:00 +0100
-route:   blog
+title: A better WebExtension debug console
+published_date: "2016-04-26 15:26:00 +0100"
+layout: post.liquid
+data:
+  subtitle: Small steps towards an awesome development experience
+  route: blog
 ---
-
 I'm happy to announce we landed [Bug 1005193](https://bugzilla.mozilla.org/show_bug.cgi?id=1005193) just in time for the new Firefox 48 release. In short, this gives you the ability to interact with the background script of a WebExtension through the add-on debugging console. I made a GIF to show it off:
 
 ![/img/debug_addons.gif](/img/debug_addons.gif)

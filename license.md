@@ -1,9 +1,9 @@
-extends: default.liquid
-
-title: johannh.me - License
-path:  license/
+permalink: /license/
+title: "johannh.me - License"
+layout: default.liquid
+data:
+  route: about
 ---
-
 # License Information
 
 Copyright 2017 Johann Hofmann.

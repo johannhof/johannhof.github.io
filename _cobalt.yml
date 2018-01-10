@@ -1,0 +1,34 @@
+source: "./"
+destination: "./build"
+include_drafts: false
+default:
+  excerpt_separator: "\n\n"
+  is_draft: false
+pages:
+  default: {}
+posts:
+  title: ~
+  description: ~
+  dir: blog
+  drafts_dir: _drafts
+  order: Desc
+  rss: rss.xml
+  jsonfeed: ~
+  default: {}
+site:
+  title: "Johann's Blog"
+  description: "Things about JS, Rust, Mozilla and more!"
+  base_url: "http://johannh.me"
+  data: ~
+template_extensions:
+  - md
+  - liquid
+ignore:
+  - README.md
+  - "build/*"
+  - ".git/*"
+syntax_highlight:
+  theme: "base16-ocean.dark"
+assets:
+  sass:
+    style: Nested

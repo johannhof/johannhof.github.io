@@ -1,10 +1,9 @@
-extends: post.liquid
-
-title:   Running rustfmt on Travis CI
-date:    24 Aug 2016 20:00:00 +0100
-route:   blog
+title: Running rustfmt on Travis CI
+published_date: "2016-08-24 20:00:00 +0100"
+layout: post.liquid
+data:
+  route: blog
 ---
-
 [rustfmt](https://github.com/rust-lang-nursery/rustfmt) just added a small feature that will hopefully have great impact on the way people use it in the future.
 
 `rustfmt --write-mode=diff` now returns an exit code of 4 if the code is not properly formatted, which will cause Travis and other CI tools to fail the build. That's great for checking if your contributors ran `cargo fmt`.

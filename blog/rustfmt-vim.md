@@ -1,10 +1,9 @@
-extends: post.liquid
-
-title:   Using rustfmt in Vim
-date:    03 Nov 2015 23:00:00 +0100
-route:   blog
+title: Using rustfmt in Vim
+published_date: "2015-11-03 23:00:00 +0100"
+layout: post.liquid
+data:
+  route: blog
 ---
-
 [rustfmt](https://github.com/nrc/rustfmt) just added support for receiving code on stdin. This means that you can now pipe things into `rustfmt` on stdin and receive a plain formatted version of your input on stdout, the UNIX way.
 
       echo "pub fn main(){println!(\"hello\");}" | rustfmt

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {{ include "_layouts/_head.liquid" }}
+    {% include "_head.liquid" %}
   </head>
-<body data-route={{route}}>
-  {{ include "_layouts/_menu.liquid" }}
+<body data-route={{ page.data.route }}>
+  {% include "_menu.liquid" %}
   <main>
-    {{ content }}
+    {{ page.content }}
   </main>
-  {{ include "_layouts/_footer.liquid" }}
+  {% include "_footer.liquid" %}
 </body>
 </html>
