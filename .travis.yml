@@ -1,18 +1,18 @@
 sudo: false
 before_script:
-  - curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --git cobalt-org/cobalt.rs --crate cobalt --force --target x86_64-unknown-linux-gnu --tag v0.11.1
-  - export PATH="$PATH:~/.cargo/bin"
+- curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --git cobalt-org/cobalt.rs
+  --crate cobalt --force --target x86_64-unknown-linux-gnu --tag v0.11.1
+- export PATH="$PATH:~/.cargo/bin"
 script:
-  - cobalt build
-
+- cobalt build
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GH_TOKEN
+  github_token: "$GH_TOKEN"
   local_dir: build
   target_branch: master
   on:
     branch: source
 env:
   global:
-    secure: G4oXam1/DW6DhqQNJ+Ln0Lz2+3NFIeAMqzDlz6CH0jitv0PgChnP5aHWGZAG3j4NgI3o5nbc/hA1uEIwDVAsXAu652GVA0oXc/HSEeq6GNEWOGdCsze2Vyj/alLx9HHdwJHFvTV0rIhy/9QU4U6wxsJ9Yay3/y61+VyhHCTWhAQ=
+  - secure: vndEjYw2DiwGfHLSO/3sJd0JD5oi23GpAnIopTXNH737H1RHupduk9yXP/dh2/hNbCTeCbTtnBN2Bl7YKgppXX3k1KbLKyAma+EGuLtwefNyFqK1eXLiuBHTZUzBIP/mz9raG02s9xjhash/ETg16tNgB6JUPtkuH2aTvZhTffA=
