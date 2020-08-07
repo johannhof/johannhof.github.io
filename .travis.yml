@@ -13,6 +13,3 @@ deploy:
   target_branch: master
   on:
     branch: source
-env:
-  global:
-  - secure: vndEjYw2DiwGfHLSO/3sJd0JD5oi23GpAnIopTXNH737H1RHupduk9yXP/dh2/hNbCTeCbTtnBN2Bl7YKgppXX3k1KbLKyAma+EGuLtwefNyFqK1eXLiuBHTZUzBIP/mz9raG02s9xjhash/ETg16tNgB6JUPtkuH2aTvZhTffA=
