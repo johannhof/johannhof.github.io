@@ -1,3 +1,4 @@
+---
 title: Running rustfmt on Travis CI
 published_date: "2016-08-24 20:00:00 +0100"
 layout: post.liquid

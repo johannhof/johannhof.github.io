@@ -1,3 +1,4 @@
+---
 title: Using rustfmt in Vim
 published_date: "2015-11-03 23:00:00 +0100"
 layout: post.liquid

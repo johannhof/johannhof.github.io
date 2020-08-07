@@ -1,3 +1,4 @@
+---
 title: A better WebExtension debug console
 published_date: "2016-04-26 15:26:00 +0100"
 layout: post.liquid

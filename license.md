@@ -1,3 +1,4 @@
+---
 permalink: /license/
 title: "johannh.me - License"
 layout: default.liquid

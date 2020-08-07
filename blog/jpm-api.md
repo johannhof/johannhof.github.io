@@ -1,3 +1,4 @@
+---
 title: jpm as a Node module
 published_date: "2016-02-11 15:26:00 +0100"
 layout: post.liquid
