@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Running rustfmt on Travis CI</title>
+<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
+<link rel="stylesheet" href="/writ.min.css">
+<link rel="stylesheet" href="/style.css" type="text/css" media="all" />
+<link rel="alternate" href="/rss.xml" type="application/rss+xml" title="RSS" />
+
+  </head>
+<body data-route=blog>
+  <nav class="menu">
+  <a class="menu-item " href="/about/">Johann</a>
+  <a class="menu-item current" href="/">Blog</a>
+  <a class="menu-item" href="https://www.notion.so/johannhof/Johann-s-Scribbles-646639f7330b4147a2942172f36b6964">Scribbles</a>
+  <a class="menu-item " href="/talks/">Talks</a>
+  <a class="menu-item icon" href="http://github.com/johannhof"><i class="fa fa-github-square"></i></a>
+  <a class="menu-item icon" href="http://twitter.com/johannh"><i class="fa fa-twitter-square"></i></a>
+  <a class="menu-item icon" href="/rss.xml"><i class="fa fa-rss-square"></i></a>
+  <hr>
+</nav>
+
+  <main>
+    <article>
+      <h1>Running rustfmt on Travis CI</h1>
+      <time pubdate="pubdate">Aug 24, 2016</time>
+      <p><a href="https://github.com/rust-lang-nursery/rustfmt">rustfmt</a> just added a small feature that will hopefully have great impact on the way people use it in the future.</p>
+<p><code>rustfmt --write-mode=diff</code> now returns an exit code of 4 if the code is not properly formatted, which will cause Travis and other CI tools to fail the build. That's great for checking if your contributors ran <code>cargo fmt</code>.</p>
+<p>This is an example Travis configuration you can use:</p>
+<pre style="background-color:#2b303b;">
+<span style="background-color:#2b303b;color:#bf616a;">language</span><span style="background-color:#2b303b;color:#c0c5ce;">: </span><span style="background-color:#2b303b;color:#bf616a;">rust
+cache</span><span style="background-color:#2b303b;color:#c0c5ce;">: </span><span style="background-color:#2b303b;color:#bf616a;">cargo
+before_script</span><span style="background-color:#2b303b;color:#c0c5ce;">: </span><span style="background-color:#2b303b;color:#bf616a;">(cargo install rustfmt || true)
+script</span><span style="background-color:#2b303b;color:#c0c5ce;">:
+- </span><span style="background-color:#2b303b;color:#b48ead;">|
+</span><span style="background-color:#bf616a;color:#2b303b;">  cargo fmt -- --write-mode=diff &amp;&amp;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#bf616a;color:#2b303b;">  cargo build &amp;&amp;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#bf616a;color:#2b303b;">  cargo test</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p><code>cache: cargo</code> is highly suggested, compiling a fresh rustfmt on every run significantly slows down your CI.
+Since cargo returns an error if a package is installed already, I have to use <code>(cargo install rustfmt || true)</code>.
+(If anyone wants to add support for a <code>--update</code> flag in cargo, <a href="https://github.com/rust-lang/cargo/pull/2405#issuecomment-195475633">I think they'd be happy to merge it</a>).</p>
+<p>You can obviously adjust the <code>cargo fmt</code> command to whatever <a href="https://github.com/rust-lang-nursery/rustfmt#configuring-rustfmt">custom rustfmt configuration</a> you're using. Just remember to append <code>--write-mode=diff</code>. Also note that I'd like to discourage you from configuring your rustfmt. Instead, you could participate in the upcoming process outlined by <a href="https://github.com/rust-lang/rfcs/blob/master/text/1607-style-rfcs.md">RFC 1607</a> to decide on a common Rust style for everyone.</p>
+<p>I already converted my <a href="https://travis-ci.org/cobalt-org/liquid-rust">liquid</a> and <a href="https://github.com/cobalt-org/cobalt.rs">Cobalt</a> projects to automatically check if pull requests adhere to the rustfmt style and it works quite well. The program output even shows you a list of things you need to fix (<a href="https://travis-ci.org/cobalt-org/liquid-rust/jobs/143378751#L263">example</a>).</p>
+<p>I hope this is useful to folks!</p>
+
+    </article>
+  </main>
+  <footer>
+  <hr>
+  <p>
+    <a href="/license/">CC BY-SA 4.0 / MIT</a>
+    -
+    <a href="https://github.com/cobalt-org/cobalt.rs">Built with Cobalt</a>
+  </p>
+  <br>
+</footer>
+
+</body>
+</html>

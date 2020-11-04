@@ -1,0 +1,204 @@
+html,
+body {
+  /*font-size: 15px;*/
+  margin: 0;
+  padding: 0;
+}
+
+body {}
+
+pre {
+  padding: 1ch;
+  border: none;
+}
+
+time {
+  color: #ccc;
+}
+
+nav {
+  font-family: "Muli", sans-serif;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 28px 0;
+}
+
+nav hr {
+  display: none;
+}
+
+nav .menu-item {
+  display: block;
+  padding: 10px 0 10px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 100;
+  transition: border-left 0.1s;
+}
+
+nav .menu-item.icon {
+  font-size: 22px;
+  padding-left: 30px;
+}
+
+nav a.menu-item {
+  color: #000;
+}
+
+.menu-item.current,
+.menu-item:hover {
+  border-left: 3px solid #000;
+}
+
+main {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  padding: 50px 40px;
+  box-sizing: border-box;
+  min-height: 600px;
+}
+
+body[data-route=about] p {
+  padding: 5px 0;
+  max-width: 600px;
+}
+
+.me-image {
+  height: 220px;
+  margin: 20px 50px;
+  float: right;
+}
+
+.about-icon {
+  float: left;
+  height: 75px;
+  margin-right: 20px;
+}
+
+.blog-list li {
+  list-style: none;
+  text-align: center;
+  margin: 20px;
+}
+
+.blog-list li a {
+  font-weight: 200;
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.blog-list li a:hover {
+  text-decoration: underline;
+}
+
+article {
+  margin-top: 50px;
+}
+
+footer {
+  font-family: "Muli", sans-serif;
+  width: 100%;
+  text-align: center;
+  color: grey;
+  font-weight: 200;
+  margin: 0 0 40px;
+}
+
+footer a, footer a:visited {
+  color: grey;
+}
+
+hr {
+  padding: 0;
+  max-width: 900px;
+  height: 1px;
+  border: 0;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
+}
+
+@media all and (max-width:1024px) {
+  main {
+    padding: 25px 40px;
+  }
+  nav {
+    position: static;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+  nav .menu-item {
+    display: inline-block;
+    padding: 10px 0 10px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: border-left 0.1s;
+  }
+  .menu hr {
+    display: block;
+  }
+  .menu-item.current,
+  .menu-item:hover {
+    border-left: none;
+  }
+}
+
+@media all and (max-width:768px) {
+  h1 {
+    font-size: 40px;
+  }
+  main {
+    padding: 20px 40px;
+  }
+}
+
+@media all and (max-width:390px) {
+  header {
+    margin-top: 10px;
+    height: 50px;
+  }
+  #stage {
+    display: none;
+  }
+  main {
+    padding: 15px 20px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+
+/* start commented backslash hack \*/
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+/* close commented backslash hack */
